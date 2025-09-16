@@ -6,6 +6,7 @@ body {
   padding: 0;
   color: #333;
   text-align: center;
+  -webkit-tap-highlight-color: transparent; /* ページ全体で無効化 */
 }
 
 /* 中央のカード */
@@ -22,7 +23,7 @@ body {
 .main-title {
   font-family: "M PLUS Rounded 1c", "Yu Gothic Rounded", sans-serif;
   font-size: 28px;
-  font-weight: 700;  /* 太字 */
+  font-weight: 700;
   letter-spacing: 0.5px;
   color: #444;
   text-align: center;
@@ -31,16 +32,16 @@ body {
 
 /* タイトル画像 */
 .start-image {
-  max-width: 80%;   /* 画面幅に合わせて縮小 */
-  height: auto;     /* 縦横比を維持 */
-  margin: 20px 0;   /* 上下に余白 */
-  border-radius: 12px; /* 角を少し丸く */
+  max-width: 80%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 12px;
 }
 
-/* ロゴ画像（タイトルの上に表示する場合用） */
+/* ロゴ画像 */
 .logo-image {
   display: block;
-  margin: 0 auto 15px;  /* 自動で中央寄せ */
+  margin: 0 auto 15px;
   max-width: 150px;
   height: auto;
 }
@@ -51,87 +52,79 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* スタートボタン専用デザイン */
+/* スタートボタン */
 .start-btn {
-  background: #ffca28;   /* 明るい黄色 */
+  background: #ffca28;
   color: #333;
   border: none;
-  padding: 20px 40px;    /* 大きめサイズ */
-  border-radius: 50px;   /* 丸みを強調（円形風） */
+  padding: 20px 40px;
+  border-radius: 50px;
   font-family: "M PLUS Rounded 1c", "Yu Gothic Rounded", sans-serif;
-  font-size: 20px;       /* 文字を大きく */
-  font-weight: bold;     /* 太字 */
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
   transition: all 0.2s ease;
 }
 
 .start-btn:hover {
-  background: #ffc107;   /* 濃い黄色に変化 */
-  transform: scale(1.05); /* ホバーで少し大きく */
+  background: #ffc107;
+  transform: scale(1.05);
 }
 
-/* ボタン */
+/* 共通ボタン */
 button {
-  background: #fffacd; /* 薄いイエロー（レモン色） */
+  background: #fffacd;
   color: #333;
-  border: 2px solid #ffd700; /* 黄色い縁取り */
+  border: 2px solid #ffd700;
   padding: 12px 20px;
   margin: 10px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   font-family: "M PLUS Rounded 1c", "Yu Gothic Rounded", sans-serif;
-  font-weight: bold; 
+  font-weight: bold;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: all 0.2s ease;
-  -webkit-tap-highlight-color: transparent; /* スマホでのタップ時ハイライトを無効化 */
-  outline: none; /* デフォルト枠を消す */
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
+/* ホバー */
 button:hover {
-  background: #ffec8b; /* 少し濃い黄色に変化 */
+  background: #ffec8b;
   transform: translateY(-2px);
 }
 
-/* ====== スマホでのフォーカス残り防止 ====== */
+/* フォーカス・アクティブ時（スマホ残像防止） */
 button:focus,
 button:active {
   outline: none !important;
   box-shadow: none !important;
-  background: #fffacd !important; /* 通常色に戻す */
+  background: #fffacd !important; /* 通常色に強制リセット */
+  color: #333 !important;
 }
 
-/* 選択済みボタン */
+/* Safari・Chromeモバイルのゴーストタップ色を消す */
+button:visited {
+  background: #fffacd !important;
+  color: #333 !important;
+}
+
+/* 選択状態 */
 button.selected {
-  background-color: #ffd700; /* 濃いめの黄色 */
-  color: #000; /* 文字色は見やすく黒 */
+  background-color: #ffd700;
+  color: #000;
 }
 
-/* 結果表示エリア（カード風） */
+/* 結果カード */
 .result-card {
-  border: 3px solid #ffd700; /* 黄色い枠 */
+  border: 3px solid #ffd700;
   border-radius: 15px;
-  background: #fffbea;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  text-align: center;
-}
-
-/* 診断結果の文字 */
-.result-card h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #444;
-}
-
-.result-card {
-  background: #fff8dc; /* やさしいクリーム色背景 */
+  background: #fff8dc;
   padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   margin-top: 25px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   text-align: center;
   animation: fadeIn 0.6s ease-in-out;
 }
@@ -159,7 +152,7 @@ button.selected {
 .result-link {
   display: inline-block;
   margin-top: 18px;
-  background: #ffca28;   /* 明るい黄色 */
+  background: #ffca28;
   padding: 12px 24px;
   border-radius: 30px;
   text-decoration: none;
@@ -171,7 +164,7 @@ button.selected {
 }
 
 .result-link:hover {
-  background: #ffc107;   /* 濃い黄色に変化 */
+  background: #ffc107;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
@@ -181,41 +174,29 @@ button.selected {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* PC・タブレット向け（今までどおり） */
-.container {
-  max-width: 600px;
-  margin: 40px auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* スマホ用 */
+/* スマホ向け */
 @media (max-width: 480px) {
   .container {
-    max-width: 95%;   /* 画面いっぱいに近づける */
-    margin: 15px auto; /* 上下の余白を小さく */
-    padding: 15px;     /* 内側も詰める */
+    max-width: 95%;
+    margin: 15px auto;
+    padding: 15px;
   }
 
   .main-title {
-    font-size: 20px;   /* タイトルを少し小さく */
-    line-height: 1.4;  /* タイトルが長くても収まる */
+    font-size: 20px;
+    line-height: 1.4;
   }
 
   h2 {
-    font-size: 16px;   /* 質問文も小さめに */
+    font-size: 16px;
   }
 
   button {
-    display: block;    /* ボタンを縦並びに */
-    width: 100%;       /* 横幅いっぱいにする */
-    margin: 8px 0;     /* 上下に少しだけ余白 */
-    font-size: 15px;   /* 文字サイズも調整 */
-    padding: 12px;     /* タップしやすい高さ */
-    -webkit-tap-highlight-color: transparent; /* ← Safariの黄色ハイライトを無効化 */
-    outline: none; /* 念のため */ 
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    font-size: 15px;
+    padding: 12px;
   }
 
   .logo-image {
