@@ -143,6 +143,9 @@ function answer(event, scoreValue, btn) {
   // 今押されたボタンに「selected」を付ける
   if (btn) {
     btn.classList.add("selected");
+
+    // ← フォーカスを外してスマホの黄色残りを消す
+    btn.blur();
   }
 
   score += scoreValue;
