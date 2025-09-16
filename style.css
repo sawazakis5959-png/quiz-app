@@ -1,4 +1,4 @@
-/* 全体のベース */   
+/* 全体のベース */    
 body {
   font-family: "M PLUS Rounded 1c", "Yu Gothic Rounded", sans-serif;
   background-color: #cfeefc; /* 薄い水色 */
@@ -85,7 +85,7 @@ button {
   font-family: "M PLUS Rounded 1c", "Yu Gothic Rounded", sans-serif;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: all 0.2s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -96,20 +96,10 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* フォーカス・アクティブ時（スマホ残像防止） */
-button:focus,
-button:focus-visible,
+/* 押した瞬間（色は変えない、影と沈み込みだけ） */
 button:active {
-  outline: none !important;
-  box-shadow: none !important;
-  background: #fffacd !important; /* 常に通常色 */
-  color: #333 !important;
-}
-
-/* Safari・Chromeモバイルのゴーストタップ色を消す */
-button:visited {
-  background: #fffacd !important;
-  color: #333 !important;
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* 選択状態 */
@@ -204,14 +194,4 @@ button.selected {
     max-width: 100px;
     margin: 0 auto 10px;
   }
-}
-
-/* ==== iPhoneの色残り対策 ==== */
-button {
-  -webkit-tap-highlight-color: transparent; /* タップ時の青いハイライトを無効化 */
-}
-
-button:active {
-  background: #fffacd !important; /* 押しても通常色のまま */
-  color: #333 !important;
 }
