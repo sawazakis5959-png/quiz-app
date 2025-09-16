@@ -98,12 +98,8 @@ button:hover {
 
 /* フォーカス・アクティブ時（スマホ残像防止） */
 button:focus,
-button:focus-visible,
-button:active {
+button:focus-visible {
   outline: none !important;
-  box-shadow: none !important;
-  background: #fffacd !important; /* 常に通常色 */
-  color: #333 !important;
 }
 
 /* Safari・Chromeモバイルのゴーストタップ色を消す */
@@ -116,6 +112,23 @@ button:visited {
 button.selected {
   background-color: #ffd700;
   color: #000;
+}
+
+/* ==== iPhoneの色残り対策（選択肢専用） ==== */
+.choice-btn,
+.choice-btn:focus,
+.choice-btn:active,
+.choice-btn:focus-visible,
+.choice-btn:visited {
+  background: #fffacd !important; /* 常に通常色 */
+  color: #333 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.choice-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* 結果カード */
@@ -204,35 +217,4 @@ button.selected {
     max-width: 100px;
     margin: 0 auto 10px;
   }
-}
-
-/* ==== iPhone Safariの色残り対策 ==== */
-button {
-  -webkit-appearance: none;   /* 標準ボタン扱いをやめる */
-  -moz-appearance: none;
-  appearance: none;
-}
-
-button:active {
-  background: #fffacd !important; /* 色を変えない */
-  color: #333 !important;
-  transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* ==== iPhone Safariの色残り徹底対策 ==== */
-button,
-button:focus,
-button:active,
-button:focus-visible,
-button:visited {
-  background: #fffacd !important; /* 常に通常色 */
-  color: #333 !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }

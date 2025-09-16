@@ -124,7 +124,7 @@ function showQuestion() {
       ${shuffledChoices
         .map(
           (choice) =>
-            `<button onclick="answer(event, ${choice.score}, this)">${choice.text}</button>`
+            `<button class="choice-btn" onclick="answer(event, ${choice.score}, this)">${choice.text}</button>`
         )
         .join("")}
     `;
@@ -136,7 +136,7 @@ function showQuestion() {
 function answer(event, scoreValue, btn) {
   if (event) event.preventDefault();
 
-  // すべての選択肢ボタンから「selected」を外す
+  // いったんすべての選択肢ボタンから「selected」を外す
   const buttons = quizEl.querySelectorAll("button");
   buttons.forEach((b) => b.classList.remove("selected"));
 
@@ -146,11 +146,6 @@ function answer(event, scoreValue, btn) {
   }
 
   score += scoreValue;
-
-  // ★ iPhone Safari の色残り対策
-  if (btn) {
-    btn.blur(); // ← フォーカスを強制的に外す
-  }
 
   // 0.3秒後に次の質問へ
   setTimeout(() => {
