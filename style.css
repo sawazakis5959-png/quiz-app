@@ -194,7 +194,7 @@ button.selected {
 }
 
 /* スマホ向け */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .container {
     max-width: 95%;
     margin: 15px auto;
