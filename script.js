@@ -136,13 +136,21 @@ function showQuestion() {
 function answer(event, scoreValue, btn) {
   if (event) event.preventDefault();
 
-  // ====== iPhone対策: 押した瞬間の残像を消す ======
-  if (btn) btn.blur();
-  if (document.activeElement && document.activeElement.tagName === "BUTTON") {
-    document.activeElement.blur();
+  // すべての選択肢ボタンから「selected」を外す
+  const buttons = quizEl.querySelectorAll("button");
+  buttons.forEach((b) => b.classList.remove("selected"));
+
+  // 今押されたボタンに「selected」を付ける
+  if (btn) {
+    btn.classList.add("selected");
   }
 
   score += scoreValue;
+
+  // ★ iPhone Safari の色残り対策
+  if (btn) {
+    btn.blur(); // ← フォーカスを強制的に外す
+  }
 
   // 0.3秒後に次の質問へ
   setTimeout(() => {
