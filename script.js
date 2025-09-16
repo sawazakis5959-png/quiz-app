@@ -5,7 +5,7 @@ const questions = [
     choices: [
       { text: "指先、母指、手首まで洗う", score: 1 },
       { text: "洗い終わったら自分のハンカチで手を拭く", score: 0 },
-      { text: "消毒液を手の甲に伸ばす", score: 0 }
+      { text: "消毒液が乾く前にケアを始める", score: 0 }
     ]
   },
   {
@@ -49,10 +49,10 @@ const questions = [
     ]
   },
   {
-    question: "Q7. 清拭のために用意するお湯として<br>適温なのは次のうちどれ？",
+    question: "Q7. 清拭時に皮膚にあたるタオルの<br>適切な表面温度は次のうちどれ？",
     choices: [
-      { text: "50～55℃", score: 1 },
-      { text: "40～45°C", score: 0 },
+      { text: "40～45℃", score: 1 },
+      { text: "50～55°C", score: 0 },
       { text: "60～65℃", score: 0 }
     ]
   },
@@ -75,9 +75,9 @@ const questions = [
   {
     question: "Q10. 食事介助をはじめるとき<br>誤嚥を防ぐためとるべき行動は？",
     choices: [
-      { text: "患者さんに水分摂取をしてもらう", score: 1 },
+      { text: "患者さんに最初に水分摂取をしてもらう", score: 1 },
       { text: "患者さんにエプロンを身に着けてもらう", score: 0 },
-      { text: "患者さんに上半身と顎を挙上してもらう", score: 0 }
+      { text: "患者さんに頸部を後屈してもらう", score: 0 }
     ]
   }
 ];
