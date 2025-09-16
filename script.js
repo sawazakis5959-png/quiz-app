@@ -172,7 +172,7 @@ function showResult() {
       <img src="nezumi_b.png" alt="診断結果画像" class="result-image">
       <a href="https://www.shorinsha.co.jp/search/s100883.html" 
          class="result-link" target="_blank">
-        📖 クイックノートのサイトを<br>チェックしてみる
+        クイックノートのサイトを<br>チェックしてみる
       </a>
     </div>
   `;
