@@ -210,6 +210,15 @@ button.selected {
     font-size: 16px;
   }
 
+  @media (max-width: 480px) {
+  .start-image {
+    margin: 10px auto; /* ← 上下の余白を小さくする */
+  }
+
+  .start-btn {
+    margin-top: 10px; /* ← ボタンの上の余白を調整 */
+  }
+
   button {
     display: block;
     width: 100%;
