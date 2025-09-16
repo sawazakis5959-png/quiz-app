@@ -134,20 +134,20 @@ function showQuestion() {
 }
 
 function answer(event, scoreValue, btn) {
-  // デフォルト動作をキャンセルしてフォーカスを外す
-  if (event) {
-    event.preventDefault();
-  }
+  if (event) event.preventDefault();
+
+  // いったんすべての選択肢ボタンから「selected」を外す
+  const buttons = quizEl.querySelectorAll("button");
+  buttons.forEach((b) => b.classList.remove("selected"));
+
+  // 今押されたボタンに「selected」を付ける
   if (btn) {
-    btn.blur();
-  }
-  if (document.activeElement && document.activeElement.tagName === "BUTTON") {
-    document.activeElement.blur();
+    btn.classList.add("selected");
   }
 
   score += scoreValue;
 
-  // 0.3秒待って次の質問へ
+  // 0.3秒後に次の質問へ
   setTimeout(() => {
     currentQuestion++;
     showQuestion();

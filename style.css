@@ -107,6 +107,11 @@ button:active {
   -webkit-tap-highlight-color: transparent;
 }
 
+button.selected {
+  background-color: #ffd700; /* 濃いめの黄色 */
+  color: #000; /* 文字色は見やすく黒 */
+}
+
 /* 結果表示エリア（カード風） */
 .result-card {
   border: 3px solid #ffd700; /* 黄色い枠 */
