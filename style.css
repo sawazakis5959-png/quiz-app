@@ -126,9 +126,13 @@ button.selected {
   box-shadow: none !important;
 }
 
+.choice-btn {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* 通常時は少し浮かせる */
+}
+
 .choice-btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transform: translateY(6px); /* 深く沈む */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 押したら影を小さく */
 }
 
 /* 結果カード */
