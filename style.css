@@ -211,11 +211,17 @@ button.selected {
   }
 
   .start-image {
-    margin: 10px auto; /* ← 上下の余白を小さくする */
+    display: block;
+    width: 100%;       /* 画像を横幅いっぱいに */
+    max-width: none;   /* 80%指定を打ち消す */
+    height: auto;      /* 縦横比を保持 */
+    margin: 0 auto 10px;
   }
 
   .start-btn {
-    margin-top: 10px; /* ← ボタンの上の余白を調整 */
+    display: block;
+    width: 100%;       /* ボタンも横幅いっぱいに */
+    margin: 0 auto;
   }
 
   button {
