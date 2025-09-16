@@ -136,16 +136,10 @@ function showQuestion() {
 function answer(event, scoreValue, btn) {
   if (event) event.preventDefault();
 
-  // いったんすべての選択肢ボタンから「selected」を外す
-  const buttons = quizEl.querySelectorAll("button");
-  buttons.forEach((b) => b.classList.remove("selected"));
-
-  // 今押されたボタンに「selected」を付ける
-  if (btn) {
-    btn.classList.add("selected");
-
-    // ← フォーカスを外してスマホの黄色残りを消す
-    btn.blur();
+  // ====== iPhone対策: 押した瞬間の残像を消す ======
+  if (btn) btn.blur();
+  if (document.activeElement && document.activeElement.tagName === "BUTTON") {
+    document.activeElement.blur();
   }
 
   score += scoreValue;

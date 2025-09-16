@@ -204,3 +204,13 @@ button.selected {
     margin: 0 auto 10px;
   }
 }
+
+/* ==== iPhoneの色残り対策 ==== */
+button {
+  -webkit-tap-highlight-color: transparent; /* タップ時の青いハイライトを無効化 */
+}
+
+button:active {
+  background: #ffd700 !important; /* 押している間だけ濃い黄色 */
+  color: #000;
+}
