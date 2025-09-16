@@ -49,7 +49,7 @@ const questions = [
     ]
   },
   {
-    question: "Q7. 清拭のために用意するお湯として適温なのは次のうちどれ？",
+    question: "Q7. 清拭のために用意するお湯として<br>適温なのは次のうちどれ？",
     choices: [
       { text: "50～55℃", score: 1 },
       { text: "40～45°C", score: 0 },
@@ -57,7 +57,7 @@ const questions = [
     ]
   },
   {
-    question: "Q8. 患者さんの意識障害レベルを評価する指標は？",
+    question: "Q8. 患者さんの意識障害レベルを<br>評価する指標は？",
     choices: [
       { text: "JCS", score: 1 },
       { text: "NRS", score: 0 },
@@ -73,7 +73,7 @@ const questions = [
     ]
   },
   {
-    question: "Q10. 食事介助をはじめるときに誤嚥を防ぐためとるべき行動は？",
+    question: "Q10. 食事介助をはじめるとき<br>誤嚥を防ぐためとるべき行動は？",
     choices: [
       { text: "患者さんに水分摂取をしてもらう", score: 1 },
       { text: "患者さんにエプロンを身に着けてもらう", score: 0 },
@@ -86,15 +86,15 @@ const questions = [
 const results = [
   {
     range: [0, 5],
-    text: "【これからの準備がカギ】タイプ！<br>クイックノートで<br>実習中に指導者さんに聞かれやすい内容を<br>チェックしておこう！"
+    text: "【これからの準備がカギ】タイプ！<br>クイックノートで<br>実習中に指導者さんに<br>聞かれやすい内容を<br>チェックしておこう！"
   },
   {
     range: [6, 8],
-    text: "【とりあえず準備完了】タイプ！<br>クイックノートで<br>実習で受け持つ患者さんの疾患について<br>チェックしておこう！"
+    text: "【とりあえず準備完了】タイプ！<br>クイックノートで<br>実習で受け持つ患者さんの<br>疾患やケアについて<br>再度チェックしておこう！"
   },
   {
     range: [9, 10],
-    text: "【友だちもサポートできる！　準備ばっちり】タイプ！<br>領域別実習でも困らないように、<br>さらに必要だと思うことをクイックノートに書き込んでみよう！"
+    text: "【準備ばっちり】タイプ！<br>友だちもサポートできるように<br>さらに必要だと思うことを<br>クイックノートに書き込もう！"
   }
 ];
 
@@ -172,7 +172,7 @@ function showResult() {
       <img src="nezumi_b.png" alt="診断結果画像" class="result-image">
       <a href="https://www.shorinsha.co.jp/search/s100883.html" 
          class="result-link" target="_blank">
-        📖 クイックノートのサイトをチェックする
+        📖 クイックノートのサイトを<br>チェックしてみる
       </a>
     </div>
   `;
