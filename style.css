@@ -98,6 +98,7 @@ button:hover {
 
 /* フォーカス・アクティブ時（スマホ残像防止） */
 button:focus,
+button:focus-visible,
 button:active {
   outline: none !important;
   box-shadow: none !important;
