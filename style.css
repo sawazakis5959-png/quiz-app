@@ -219,3 +219,20 @@ button:active {
   transform: translateY(2px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
+
+/* ==== iPhone Safariの色残り徹底対策 ==== */
+button,
+button:focus,
+button:active,
+button:focus-visible,
+button:visited {
+  background: #fffacd !important; /* 常に通常色 */
+  color: #333 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
