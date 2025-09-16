@@ -212,3 +212,27 @@ button.selected {
     margin: 0 auto 10px;
   }
 }
+
+/* ==== iPhone Safariのタップ時色残り完全対策 ==== */
+button {
+  -webkit-tap-highlight-color: transparent; /* 青いハイライトを無効化 */
+  position: relative; /* 疑似要素を配置するため */
+  overflow: hidden;
+}
+
+/* 疑似要素でタップ時の色変化を打ち消す */
+button::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent !important; /* 強制透明 */
+}
+
+/* 押したときの動きだけ残す（沈む） */
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  background: #fffacd !important; /* 色は変えない */
+  color: #333 !important;
+}
