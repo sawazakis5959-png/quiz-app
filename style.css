@@ -32,9 +32,10 @@ body {
 
 /* タイトル画像 */
 .start-image {
+  display: block;
+  margin: 20px auto; /* ← 左右オートで中央寄せ */
   max-width: 80%;
   height: auto;
-  margin: 20px 0;
   border-radius: 12px;
 }
 
