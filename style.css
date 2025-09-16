@@ -161,7 +161,7 @@ button.selected {
 }
 
 .result-image {
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
   margin: 15px 0;
   border-radius: 12px;
