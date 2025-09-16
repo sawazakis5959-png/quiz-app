@@ -1,4 +1,4 @@
-/* 全体のベース */  
+/* 全体のベース */   
 body {
   font-family: "M PLUS Rounded 1c", "Yu Gothic Rounded", sans-serif;
   background-color: #cfeefc; /* 薄い水色 */
@@ -102,7 +102,7 @@ button:focus-visible,
 button:active {
   outline: none !important;
   box-shadow: none !important;
-  background: #fffacd !important; /* 通常色に強制リセット */
+  background: #fffacd !important; /* 常に通常色 */
   color: #333 !important;
 }
 
@@ -212,6 +212,6 @@ button {
 }
 
 button:active {
-  background: #ffd700 !important; /* 押している間だけ濃い黄色 */
-  color: #000;
+  background: #fffacd !important; /* 押しても通常色のまま */
+  color: #333 !important;
 }
