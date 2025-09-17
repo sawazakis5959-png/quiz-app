@@ -173,54 +173,57 @@ function showResult() {
     if (score >= r.range[0] && score <= r.range[1]) {
       resultText = r.text;
       if (r.range[1] <= 5) {
-        resultType = "A";
+        resultType = "A"; // 0～5点
       } else if (r.range[1] <= 8) {
-        resultType = "B";
+        resultType = "B"; // 6～8点
       } else {
-        resultType = "C";
+        resultType = "C"; // 9～10点
       }
     }
   }
 
-  const xUrl =
-    "https://twitter.com/intent/tweet?text=" +
-    encodeURIComponent(shareMessages[resultType]) +
-    "&url=" +
-    encodeURIComponent(siteUrl);
-  document.getElementById("share-x").href = xUrl;
-
-  const lineUrl =
-    "https://social-plugins.line.me/lineit/share?url=" +
-    encodeURIComponent(siteUrl + "?result=" + resultType);
-  document.getElementById("share-line").href = lineUrl;
-
-  // 下部のシェアボタンを拡大して表示
-  document.getElementById("share-buttons").style.display = "flex";
-  document.getElementById("share-buttons").style.justifyContent = "center";
-  document.getElementById("share-buttons").style.gap = "16px";
-  document.getElementById("share-buttons").style.marginTop = "20px";
-
-  // 結果HTML
+  // 結果HTML（シェアボタンはここでのみ作る。IDの重複を避けるため、外側のshare-buttonsは削除してください）
   resultEl.innerHTML = `
     <div class="result-card">
       <h2>診断結果</h2>
       <p>${resultText}</p>
       <p>(あなたのスコア: ${score} / 10)</p>
+
       <img src="nezumi_b.png" alt="診断結果画像" class="result-image">
+
       <a href="https://www.shorinsha.co.jp/search/s100883.html" 
          class="result-link" target="_blank">
         クイックノートのサイトを<br>チェックしてみる
       </a>
-      <div style="margin-top: 20px; display: flex; justify-content: center; gap: 20px;">
-        <a id="share-x" target="_blank">
-          <img src="images/x-logo.svg" alt="Xでシェア" 
-               style="width:40px; height:40px; background:#fff; padding:6px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
+
+      <!-- 下部のシェアボタン（画像の下に表示） -->
+      <div id="result-share" style="margin-top: 20px; display:flex; justify-content:center; gap:20px;">
+        <a id="share-x" target="_blank" aria-label="Xでシェア">
+          <img src="images/logo-black.png" alt="Xでシェア" style="width:44px; height:44px; background:#fff; padding:6px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
         </a>
-        <a id="share-line" target="_blank">
-          <img src="images/line-logo.png" alt="LINEでシェア" 
-               style="width:40px; height:40px; background:#fff; padding:6px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
+        <a id="share-line" target="_blank" aria-label="LINEでシェア">
+          <img src="images/line-logo.png" alt="LINEでシェア" style="width:44px; height:44px; background:#fff; padding:6px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
         </a>
       </div>
     </div>
   `;
+
+  // シェアリンクを（DOM挿入後に）更新 — ここでIDが確実に存在する
+  const xLink = document.getElementById("share-x");
+  if (xLink) {
+    const xUrl =
+      "https://twitter.com/intent/tweet?text=" +
+      encodeURIComponent(shareMessages[resultType]) +
+      "&url=" +
+      encodeURIComponent(siteUrl);
+    xLink.href = xUrl;
+  }
+
+  const lineLink = document.getElementById("share-line");
+  if (lineLink) {
+    const lineUrl =
+      "https://social-plugins.line.me/lineit/share?url=" +
+      encodeURIComponent(siteUrl + "?result=" + resultType);
+    lineLink.href = lineUrl;
+  }
 }
