@@ -167,22 +167,21 @@ function answer(event, scoreValue, btn) {
 function showResult() {
   quizEl.innerHTML = "";
   let resultText = "診断結果が見つかりませんでした。";
-  let resultType = ""; // ← 追加
+  let resultType = "";
 
   for (let r of results) {
     if (score >= r.range[0] && score <= r.range[1]) {
       resultText = r.text;
       if (r.range[1] <= 5) {
-        resultType = "A"; // 0～5点
+        resultType = "A";
       } else if (r.range[1] <= 8) {
-        resultType = "B"; // 6～8点
+        resultType = "B";
       } else {
-        resultType = "C"; // 9～10点
+        resultType = "C";
       }
     }
   }
 
-  // シェアリンクを更新
   const xUrl =
     "https://twitter.com/intent/tweet?text=" +
     encodeURIComponent(shareMessages[resultType]) +
@@ -195,30 +194,33 @@ function showResult() {
     encodeURIComponent(siteUrl + "?result=" + resultType);
   document.getElementById("share-line").href = lineUrl;
 
-  // シェアボタンを表示
-  document.getElementById("share-buttons").style.display = "block";
+  // 下部のシェアボタンを拡大して表示
+  document.getElementById("share-buttons").style.display = "flex";
+  document.getElementById("share-buttons").style.justifyContent = "center";
+  document.getElementById("share-buttons").style.gap = "16px";
+  document.getElementById("share-buttons").style.marginTop = "20px";
 
+  // 結果HTML
   resultEl.innerHTML = `
     <div class="result-card">
       <h2>診断結果</h2>
       <p>${resultText}</p>
       <p>(あなたのスコア: ${score} / 10)</p>
-
-      <!-- シェアボタン（画像の上に配置） -->
-      <div style="margin: 12px 0; display: flex; gap: 12px; justify-content: center;">
-        <a id="share-x" target="_blank">
-          <img src="images/x-logo.svg" alt="Xでシェア" style="width:32px; height:32px; background:#fff; border-radius:4px; box-shadow:0 2px 4px rgba(0,0,0,0.2);">
-        </a>
-        <a id="share-line" target="_blank">
-          <img src="images/line-logo.png" alt="LINEでシェア" style="width:32px; height:32px; background:#fff; border-radius:4px; box-shadow:0 2px 4px rgba(0,0,0,0.2);">
-        </a>
-      </div>
-
       <img src="nezumi_b.png" alt="診断結果画像" class="result-image">
       <a href="https://www.shorinsha.co.jp/search/s100883.html" 
          class="result-link" target="_blank">
         クイックノートのサイトを<br>チェックしてみる
       </a>
+      <div style="margin-top: 20px; display: flex; justify-content: center; gap: 20px;">
+        <a id="share-x" target="_blank">
+          <img src="images/x-logo.svg" alt="Xでシェア" 
+               style="width:40px; height:40px; background:#fff; padding:6px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
+        </a>
+        <a id="share-line" target="_blank">
+          <img src="images/line-logo.png" alt="LINEでシェア" 
+               style="width:40px; height:40px; background:#fff; padding:6px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
+        </a>
+      </div>
     </div>
   `;
 }
