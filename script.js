@@ -1,4 +1,4 @@
-// ====== 質問文と選択肢 ======
+// ====== 質問文と選択肢 ====== 
 const questions = [
   {
     question: "Q1. 衛生学的手洗いの注意すべきポイントは？",
@@ -203,6 +203,17 @@ function showResult() {
       <h2>診断結果</h2>
       <p>${resultText}</p>
       <p>(あなたのスコア: ${score} / 10)</p>
+
+      <!-- シェアボタン（画像の上に配置） -->
+      <div style="margin: 12px 0; display: flex; gap: 12px; justify-content: center;">
+        <a id="share-x" target="_blank">
+          <img src="images/x-logo.svg" alt="Xでシェア" style="width:32px; height:32px; background:#fff; border-radius:4px; box-shadow:0 2px 4px rgba(0,0,0,0.2);">
+        </a>
+        <a id="share-line" target="_blank">
+          <img src="images/line-logo.png" alt="LINEでシェア" style="width:32px; height:32px; background:#fff; border-radius:4px; box-shadow:0 2px 4px rgba(0,0,0,0.2);">
+        </a>
+      </div>
+
       <img src="nezumi_b.png" alt="診断結果画像" class="result-image">
       <a href="https://www.shorinsha.co.jp/search/s100883.html" 
          class="result-link" target="_blank">
