@@ -7,17 +7,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
 
   <!-- OGP設定 -->
-  <meta property="og:title" content="実習準備できてる？チェック" />
-  <meta property="og:description" content="10の質問で、準備ばっちりかどうかチェックしてみよう！" />
-  <meta property="og:image" content="https://yourdomain.com/ogp-image.png" />
-  <meta property="og:url" content="https://petitnurse-quicknote-shindan.netlify.app" />
+  <meta property="og:title" content="プチナースの実習準備できてる？診断" />
+  <meta property="og:description" content="10個の質問で、準備ばっちりかどうかチェックしてみよう！" />
+  <meta property="og:image" content="https://petitnurse-quicknote-shindan.netlify.app/start-image.png" />
+  <meta property="og:url" content="https://petitnurse-quicknote-shindan.netlify.app/" />
   <meta property="og:type" content="website" />
 
   <!-- Twitterカード設定 -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="実習準備できてる？診断" />
-  <meta name="twitter:description" content="10の質問で、準備ばっちりかどうかチェックしてみよう！" />
-  <meta name="twitter:image" content="https://yourdomain.com/ogp-image.png" />
+  <meta name="twitter:card" content="https://petitnurse-quicknote-shindan.netlify.app/start-image.png" />
+  <meta name="twitter:title" content="プチナースの実習準備できてる？診断" />
+  <meta name="twitter:description" content="10個の質問で、準備ばっちりかどうかチェックしてみよう！" />
+  <meta name="twitter:image" content="https://petitnurse-quicknote-shindan.netlify.app/start-image.png" />
 
   <!-- Google Fonts 追加 -->
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
@@ -33,6 +33,17 @@
     <div id="quiz"></div>
     <button id="startBtn" class="start-btn">診断スタート</button>
     <div id="result"></div>
+    <!-- 診断結果の下にシェアボタンを配置 -->
+    <div id="share-buttons" style="margin-top: 12px; display: none;">
+    <!-- Xシェア -->
+    <a id="share-x" target="_blank">
+    <img src="images/x-logo.svg" alt="Xでシェア" style="width:24px; height:24px; margin-right:8px;">
+    </a>
+
+    <!-- LINEシェア -->
+    <a id="share-line" target="_blank">
+    <img src="images/line-logo.png" alt="LINEでシェア" style="width:24px; height:24px;">
+    </a>
   </div>
   <script src="script.js"></script>
 </body>

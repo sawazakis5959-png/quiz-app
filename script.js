@@ -98,6 +98,16 @@ const results = [
   }
 ];
 
+// 結果ごとのシェア文
+const shareMessages = {
+  A: "私は【これからの準備がカギ】タイプでした！ あなたは？ #プチナース #看護学生",
+  B: "私は【とりあえず準備完了】タイプでした！ あなたは？ #プチナース #看護学生",
+  C: "私は【準備ばっちり】タイプでした！ あなたは？ #プチナース #看護学生"
+};
+
+// あなたのサイトURL
+const siteUrl = "https://petitnurse-quicknote-shindan.netlify.app/";
+
 // ====== 状態変数 ======
 let currentQuestion = 0;
 let score = 0;
@@ -157,12 +167,36 @@ function answer(event, scoreValue, btn) {
 function showResult() {
   quizEl.innerHTML = "";
   let resultText = "診断結果が見つかりませんでした。";
+  let resultType = ""; // ← 追加
 
   for (let r of results) {
     if (score >= r.range[0] && score <= r.range[1]) {
       resultText = r.text;
+      if (r.range[1] <= 5) {
+        resultType = "A"; // 0～5点
+      } else if (r.range[1] <= 8) {
+        resultType = "B"; // 6～8点
+      } else {
+        resultType = "C"; // 9～10点
+      }
     }
   }
+
+  // シェアリンクを更新
+  const xUrl =
+    "https://twitter.com/intent/tweet?text=" +
+    encodeURIComponent(shareMessages[resultType]) +
+    "&url=" +
+    encodeURIComponent(siteUrl);
+  document.getElementById("share-x").href = xUrl;
+
+  const lineUrl =
+    "https://social-plugins.line.me/lineit/share?url=" +
+    encodeURIComponent(siteUrl + "?result=" + resultType);
+  document.getElementById("share-line").href = lineUrl;
+
+  // シェアボタンを表示
+  document.getElementById("share-buttons").style.display = "block";
 
   resultEl.innerHTML = `
     <div class="result-card">
